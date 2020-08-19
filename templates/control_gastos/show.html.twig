@@ -1,0 +1,48 @@
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">
+                Detalles del control de gastos
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th>Número de Comprobante</th>
+                            <td colspan="3">{{ control_gastos.numerocomprobante }}</td>
+                        </tr>
+                        <tr>
+                            <th>Plan de trabajo</th>
+                            <td colspan="3">{{ control_gastos.plantrabajo }}</td>
+                        </tr>
+                        <tr>
+                            <th>Tipo de Comprobante</th>
+                            <td>{{ control_gastos.tipoComprobante }}</td>
+                        </tr>
+                        <tr>
+                            <th>Fecha de captura</th>
+                            <td>{{ control_gastos.fechacaptura | date('Y-m-d')}}</td>
+                        </tr>
+                        <tr>
+                            <th>Monto</th>
+                            <td>{{ control_gastos.monto }}</td>
+                        </tr>
+                        <tr>
+                            <th>Concepto</th>
+                            <td>{{ control_gastos.concepto }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-primary btn-sm" href="{{ path('control_gastos_descargar',{'id':control_gastos.id}) }}"> <i class="fa fa-download"></i>Descargar</a>
+            <a class="btn btn-sm btn-secondary" data-dismiss="modal"><i class="flaticon-cancel"></i> Cancelar</a>
+        </div>
+    </div>
+</div>

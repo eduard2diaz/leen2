@@ -1,0 +1,77 @@
+{{ form_start(form,{'attr':{
+    'id': form_id|default('condicion_docente_educativa_new'),
+    'class': 'm-form m-form--state'
+}}) }}
+<div class="modal-body" id="modal-body">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group m-form__group">
+                <label>
+                    {{ form_label(form.escuela) }}
+                </label>
+                <div>
+                    {{ form_widget(form.escuela) }}
+                    {{ form_errors(form.escuela) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group m-form__group">
+                <label>
+                    {{ form_label(form.curp) }}
+                </label>
+                <div>
+                    {{ form_widget(form.curp) }}
+                    {{ form_errors(form.curp) }}
+                </div>
+                <span class="help-block"> Se compone de exactamente 18 caracteres. </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group m-form__group">
+                <label>
+                    {{ form_label(form.nombre) }}
+                </label>
+                <div>
+                    {{ form_widget(form.nombre) }}
+                    {{ form_errors(form.nombre) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group m-form__group">
+                <label>
+                    {{ form_label(form.grado) }}
+                </label>
+                <div>
+                    {{ form_widget(form.grado) }}
+                    {{ form_errors(form.grado) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ form_errors(form) }}
+{{ form_rest(form) }}
+
+<div class="modal-footer">
+    {% if condicion_docente_educativa.id is not empty%}
+        <li class="list-inline-item">
+            <a class="btn btn-danger btn-sm  color-white eliminar_condicion_docente_educativa"
+               data-href="{{ path('condicion_docente_educativa_delete', { 'id': condicion_docente_educativa.id }) }}"
+               data-csrf="{{ csrf_token('delete' ~ condicion_docente_educativa.id) }}">
+                <i class="flaticon-delete-1"></i> Eliminar</a>
+        </li>
+    {% endif %}
+
+    <a class="btn btn-sm btn-secondary" data-dismiss="modal"><i class="flaticon-cancel"></i> Cancelar</a>
+    <button class="btn btn-sm btn-primary mt-ladda-btn ladda-button" data-style="expand-right" type="submit">
+        <i class="flaticon-edit"></i>
+        <span class="ladda-label">{{ action |default('Guardar') }}</span>
+        <span class="ladda-spinner"></span>
+    </button>
+</div>
+{{ form_end(form) }}
+

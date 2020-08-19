@@ -1,0 +1,33 @@
+<a data-href="{{ path('condicion_educativa_alumno_new',{'id':diagnostico_plantel.id}) }}" class="btn btn-sm btn-label-primary btn-bold btn-icon-h kt-margin-b-20 edicion_condicion_educativa_alumno"   data-toggle="m-tooltip" data-skin="dark" data-placement="bottom" data-original-title="Adicionar condición educativa alumnos">
+    Nuevo
+</a>
+<table class="table table-hover" id="condicion_educativa_alumno_entity_table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Escuela</th>
+        <th>Número de alumnas</th>
+        <th>Número de alumnos</th>
+        <th>Grado</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% set i=1 %}
+    {% for condicion_educativa_alumno in condicion_educativa_alumnos %}
+        <tr>
+            <td>{{ i }}</td>
+            <td>{{ condicion_educativa_alumno.escuela.nombre }}</td>
+            <td>{{ condicion_educativa_alumno.numalumnas }}</td>
+            <td>{{ condicion_educativa_alumno.numalumnos }}</td>
+            <td>{{ condicion_educativa_alumno.grado }}</td>
+            <td>
+                <ul class="hidden_element list-inline pull-right">
+                    <li class="list-inline-item"><a class="btn default btn-sm btn-primary edicion_condicion_educativa_alumno"  data-href="{{ path('condicion_educativa_alumno_edit', {'id': condicion_educativa_alumno.id}) }}"><i class="fa fa-edit"></i>Editar</a></li>
+                </ul>
+            </td>
+        </tr>
+        {% set i=1+i %}
+    {% endfor %}
+    </tbody>
+</table>

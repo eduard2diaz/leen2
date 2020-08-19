@@ -1,0 +1,58 @@
+{% extends 'layout/autenticado.html.twig' %}
+{% block body %}
+    <div class="kt-subheader   kt-grid__item" id="kt_subheader">
+        <div class="kt-subheader__main">
+            <h3 class="kt-subheader__title">Estadísticas</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-12">
+            <!--begin:: Widgets/Daily Sales-->
+            <div class="kt-portlet kt-portlet--height-fluid">
+                <div class="kt-widget14">
+                    <div class="kt-widget14__header kt-margin-b-30">
+                        <h3 class="kt-widget14__title">
+                            Planteles sin drenaje
+                        </h3>
+                    </div>
+                        <table class="table" id="plantel_entity_table">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% set i=1 %}
+                            {% for plantel in plantels %}
+                                <tr>
+                                    <td>{{ i }}</td>
+                                    <td>{{ plantel.nombre }}</td>
+                                    <td>
+                                        <ul class="hidden_element list-inline pull-right">
+                                            <li class="list-inline-item">
+                                                <a class="btn default btn-sm"
+                                                   href="{{ path('plantel_show', {'id': plantel.id}) }}"><i
+                                                            class="fa fa-eye"></i>Visualizar</a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                {% set i=1+i %}
+                            {% else %}
+                                <tr>
+                                    <td colspan="4" class="text-center"><i>No hay datos que mostrar</i></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        <div class="navigation">
+                            {{ knp_pagination_render(plantels) }}
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

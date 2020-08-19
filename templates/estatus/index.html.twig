@@ -1,0 +1,64 @@
+{% extends 'layout/autenticado.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('vendors/custom/datatables/datatables.bundle.css','template') }}"/>
+{% endblock %}
+{% block body %}
+    <div class="kt-subheader   kt-grid__item" id="kt_subheader">
+        <div class="kt-subheader__main">
+            <h3 class="kt-subheader__title">Estatus</h3>
+            <span class="kt-subheader__separator kt-subheader__separator--v"></span>
+            <a data-href="{{ path('estatus_new') }}" class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10 edicion">
+                Nuevo
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-12">
+            <!--begin:: Widgets/Daily Sales-->
+            <div class="kt-portlet kt-portlet--height-fluid">
+                <div class="kt-widget14">
+                    <div class="kt-widget14__header kt-margin-b-30">
+                        <h3 class="kt-widget14__title">
+                            Listado
+                        </h3>
+                    </div>
+                    <table class="table" id="estatus_entity_table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% set i=1 %}
+                        {% for estatus in estatuses %}
+                            <tr>
+                                <td>{{ i }}</td>
+                                <td>{{ estatus.estatus }}</td>
+                                <td>
+                                    <ul class="hidden_element list-inline pull-right">
+                                        <li class="list-inline-item"><a class="btn btn-primary btn-sm edicion" data-href="{{ path('estatus_edit', {'id': estatus.id}) }}"><i class="fa fa-edit"></i>Editar</a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        {% set i=1+i %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('vendors/custom/datatables/datatables.bundle.js','template') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/entity/estatus.js','app') }}" type="text/javascript"></script>
+    <script>
+        var estatusCounter='{{ estatuses |length }}';
+        estatus.init();
+    </script>
+{% endblock %}

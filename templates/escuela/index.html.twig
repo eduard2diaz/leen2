@@ -1,0 +1,72 @@
+{% extends 'layout/autenticado.html.twig' %}
+
+{% block body %}
+    <div class="kt-subheader   kt-grid__item" id="kt_subheader">
+        <div class="kt-subheader__main">
+            <h3 class="kt-subheader__title">Escuelas</h3>
+        </div>
+        <div class="kt-subheader__toolbar">
+            <div class="kt-subheader__wrapper">
+                {% include 'layout/recortes/KnpPaginatorMySkin/filtro.html.twig'%}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-12">
+            <!--begin:: Widgets/Daily Sales-->
+            <div class="kt-portlet kt-portlet--height-fluid">
+                <div class="kt-widget14">
+                    <div class="kt-widget14__header kt-margin-b-30">
+                        <h3 class="kt-widget14__title">
+                            Listado
+                        </h3>
+                    </div>
+                    <table class="table table-hover" id="escuela_entity_table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>CCTS</th>
+                            <th>Plantel</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% set i=(escuelas.page |default(1) -1)*knp_num_items_per_page+1 %}
+                        {% for escuela in escuelas %}
+                            <tr>
+                                <td>{{ i }}</td>
+                                <td>{{ escuela.nombre }}</td>
+                                <td>{{ escuela.ccts }}</td>
+                                <td>{{ escuela.plantel }}</td>
+                                <td>
+                                    <ul class="hidden_element list-inline pull-right">
+                                        <li class="list-inline-item">
+                                            <a class="btn default btn-sm" href="{{ path('escuela_show', {'id': escuela.id}) }}"><i class="fa fa-eye"></i>Visualizar</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            {% set i=1+i %}
+                        {% else %}
+                            <tr>
+                                <td colspan="5" class="text-center"><i>No hay datos que mostrar</i></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <div class="navigation">
+                        {{ knp_pagination_render(escuelas,
+                            null,
+                            {
+                                'filtro': filtro,
+                            }
+                        ) }}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

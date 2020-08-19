@@ -1,0 +1,257 @@
+{% embed 'plantel/template.html.twig' with {'plantel':diagnostico_plantel.plantel}%}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('vendors/custom/datatables/datatables.bundle.css','template') }}"/>
+{% endblock %}
+
+{% block plantel_show_header %}
+    {{ parent() }}
+    <h3 class="kt-subheader__title">Detalles del diagnóstico</h3>
+{% endblock plantel_show_header %}
+
+{% block plantel_show_body %}
+    <div class="col-xl-12">
+        <!--begin:: Widgets/Daily Sales-->
+        <div class="kt-portlet kt-portlet--height-fluid">
+            <div class="kt-widget14">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <b>Identificador del Diagnóstico:</b> {{ diagnostico_plantel.iddiagnosticoplantel }}
+                    </div>
+                    <div class="col-md-2">
+                        <b>Fecha:</b> {{ diagnostico_plantel.fecha | date('Y-m-d') }}
+                    </div>
+                </div>
+
+                <div class="kt-portlet kt-margin-t-40">
+                    <div class="kt-portlet__head">
+                        <div class="kt-portlet__head-label">
+                            <h3 class="kt-portlet__head-title">
+                                Secciones
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="kt-portlet__body">
+                        <ul class="nav nav-pills" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#kt_tabs_3_1"><i
+                                            class="fa fa-school"></i> Infraestructura</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#kt_tabs_3_2"><i class="fa fa-bolt"></i>Servicios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#kt_tabs_3_3"><i class="fa fa-book"></i>
+                                    Docentes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#kt_tabs_3_4"><i class="fa fa-users"></i>Alumn@s</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="kt_tabs_3_1" role="tabpanel">
+                                <div class="row kt-margin-t-30">
+                                    <div class="col-md-3">
+                                        <b>Número de aulas:</b> {{ diagnostico_plantel.numeroaulas }}
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Condiciones:</b> {{ diagnostico_plantel.idcondicionesAula }}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <b>Observación:</b> {{ diagnostico_plantel.getDescripNumAulas() }}
+                                    </div>
+                                </div>
+                                <div class="row kt-margin-t-30">
+                                    <div class="col-md-3">
+                                        <b>Número de sanitarios:</b> {{ diagnostico_plantel.numerosanitarios }}
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Condiciones:</b> {{ diagnostico_plantel.idcondicionessanitarios }}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <b>Observación:</b> {{ diagnostico_plantel.getDescripNumSanitarios() }}
+                                    </div>
+                                </div>
+
+                                <div class="row kt-margin-t-30">
+                                    <div class="col-md-3">
+                                        <b>Número de oficinas:</b> {{ diagnostico_plantel.numerooficinas }}
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Condiciones:</b> {{ diagnostico_plantel.idcondicionoficina }}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <b>Observación:</b> {{ diagnostico_plantel.getDescripNumOficinas() }}
+                                    </div>
+                                </div>
+
+                                <div class="row kt-margin-t-30">
+                                    <div class="col-md-3">
+                                        <b>Número de bibliotecas:</b> {{ diagnostico_plantel.numerobibliotecas }}
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Condiciones:</b> {{ diagnostico_plantel.idcondicionesbliblioteca }}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <b>Observación:</b> {{ diagnostico_plantel.getDescripNumBibliotecas() }}
+                                    </div>
+                                </div>
+                                <div class="row kt-margin-t-30">
+                                    <div class="col-md-3">
+                                        <b>Número de aulas de medios:</b> {{ diagnostico_plantel.numeroaulasmedios }}
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Condiciones:</b> {{ diagnostico_plantel.idcondicionaulamedios }}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <b>Observación:</b> {{ diagnostico_plantel.getDescripNumAulamedios() }}
+                                    </div>
+                                </div>
+                                <div class="row kt-margin-t-30">
+                                    <div class="col-md-3">
+                                        <b>Número de patios:</b> {{ diagnostico_plantel.numeropatio }}
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Condiciones:</b> {{ diagnostico_plantel.idcondicionpatio }}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <b>Observación:</b> {{ diagnostico_plantel.getDescripNumPatios() }}
+                                    </div>
+                                </div>
+                                <div class="row kt-margin-t-30">
+                                    <div class="col-md-3">
+                                        <b>Número de canchas:</b> {{ diagnostico_plantel.numerocanchasdeportivas }}
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Condiciones:</b> {{ diagnostico_plantel.idcondicioncanchasdeportivas }}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <b>Observación:</b> {{ diagnostico_plantel.getDescripNumCanchasDeportivas() }}
+                                    </div>
+                                </div>
+                                <div class="row kt-margin-t-30">
+                                    <div class="col-md-3">
+                                        <b>Número de bardas:</b> {{ diagnostico_plantel.numerobarda }}
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Condiciones:</b> {{ diagnostico_plantel.idcondicionbarda }}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <b>Observación:</b> {{ diagnostico_plantel.getDescripNumBardas() }}
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="tab-pane" id="kt_tabs_3_2" role="tabpanel">
+                                <div class="row kt-margin-t-30">
+                                    <div class="col-md-3">
+                                        <label class="kt-checkbox kt-checkbox--success kt-checkbox--bold kt-checkbox--disabled">
+                                            <b>Agua potable:</b> {{ diagnostico_plantel.aguapotable ? 'Si' : 'No' }}
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Condiciones:</b> {{ diagnostico_plantel.idcondicionagua }}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <b>Observación:</b> {{ diagnostico_plantel.getDescripAguaPotables() }}
+                                    </div>
+                                </div>
+                                <div class="row kt-margin-t-30">
+                                    <div class="col-md-3">
+                                        <label class="kt-checkbox kt-checkbox--success kt-checkbox--bold kt-checkbox--disabled">
+                                            <b>Drenaje:</b> {{ diagnostico_plantel.drenaje ? 'Si' : 'No' }}
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Condiciones:</b> {{ diagnostico_plantel.idcondiciondrenaje }}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <b>Observación:</b> {{ diagnostico_plantel.getDescripDrenaje() }}
+                                    </div>
+                                </div>
+                                <div class="row kt-margin-t-30">
+                                    <div class="col-md-3">
+                                        <label class="kt-checkbox kt-checkbox--success kt-checkbox--bold kt-checkbox--disabled">
+                                            <b>Energía
+                                                Eléctrica:</b> {{ diagnostico_plantel.energiaelectrica ? 'Si' : 'No' }}
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Condiciones:</b> {{ diagnostico_plantel.idcondicionenergia }}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <b>Observación:</b> {{ diagnostico_plantel.getDescripEnergiaelectrica() }}
+                                    </div>
+                                </div>
+                                <div class="row kt-margin-t-30">
+                                    <div class="col-md-3">
+                                        <label class="kt-checkbox kt-checkbox--success kt-checkbox--bold kt-checkbox--disabled">
+                                            <b>Telefonía:</b> {{ diagnostico_plantel.telefono  ? 'Si' : 'No' }}
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Condiciones:</b> {{ diagnostico_plantel.idcondiciontelefono }}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <b>Observación:</b> {{ diagnostico_plantel.getDescripTelefonia() }}
+                                    </div>
+                                </div>
+                                <div class="row kt-margin-t-30">
+                                    <div class="col-md-3">
+                                        <label class="kt-checkbox kt-checkbox--success kt-checkbox--bold kt-checkbox--disabled">
+                                            <b>Internet:</b> {{ diagnostico_plantel.internet ? 'Si' : 'No' }}
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Condiciones:</b> {{ diagnostico_plantel.idcondicioninternet }}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <b>Observación:</b> {{ diagnostico_plantel.getDescripInternet() }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="kt_tabs_3_3" role="tabpanel">
+                                {{ include('condicion_docente_educativa/table.html.twig') }}
+                            </div>
+                            <div class="tab-pane" id="kt_tabs_3_4" role="tabpanel">
+                                {{ include('condicion_educativa_alumnos/table.html.twig') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-inline pull-right kt-margin-t-20">
+                    {% if eliminable==true %}
+                        <li class="list-inline-item">
+                            <a class="btn btn-danger btn-sm  color-white eliminar_diagonostico_plantel"
+                               data-href="{{ path('diagnostico_plantel_delete', { 'id': diagnostico_plantel.id }) }}"
+                               data-csrf="{{ csrf_token('delete' ~ diagnostico_plantel.id) }}">
+                                <i class="flaticon-delete-1"></i> Eliminar</a>
+                        </li>
+                    {% endif %}
+                    <li class="list-inline-item">
+                        <a class="btn btn-primary"
+                           href="{{ path('diagnostico_plantel_descargar',{'id':diagnostico_plantel.id}) }}"> <i
+                                    class="fa fa-download"></i>Descargar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('vendors/custom/datatables/datatables.bundle.js','template') }}"
+            type="text/javascript"></script>
+    <script src="{{ asset('js/entity/diagnostico_plantel.js','app') }}" type="text/javascript"></script>
+    <script>
+        diagnostico_plantel.show();
+    </script>
+{% endblock %}
+{% endembed %}

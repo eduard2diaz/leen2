@@ -1,0 +1,246 @@
+{{ form_start(form,{'attr':{
+    'id': form_id|default('diagnostico_plantel'),
+    'class': 'm-form m-form--state'
+}}) }}
+
+<div class="row">
+    <div class="col-md-4">
+        {{ form_row(form.fecha) }}
+    </div>
+</div>
+
+<div class="kt-portlet kt-margin-t-40">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title">
+                Secciones
+            </h3>
+        </div>
+    </div>
+
+    <div class="kt-portlet__body">
+        <ul class="nav nav-pills" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#kt_tabs_3_1"><i class="fa fa-school"></i> Infraestructura</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#kt_tabs_3_2"><i class="fa fa-bolt"></i>Servicios</a>
+            </li>
+            {% if condicion_docente_educativas is defined and condicion_educativa_alumnos is defined %}
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#kt_tabs_3_3"><i class="fa fa-book"></i> Docentes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#kt_tabs_3_4"><i class="fa fa-users"></i>Alumn@s</a>
+            </li>
+            {% endif %}
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="kt_tabs_3_1" role="tabpanel">
+                <div class="row kt-margin-t-30">
+                    <div class="col-md-3">
+                        {{ form_row(form.numeroaulas) }}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form_row(form.idcondicionesAula) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.descrip_num_aulas) }}
+                    </div>
+                </div>
+                <div class="row kt-margin-t-30">
+                    <div class="col-md-3">
+                        {{ form_row(form.numerosanitarios) }}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form_row(form.idcondicionessanitarios) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.descrip_num_sanitarios) }}
+                    </div>
+                </div>
+
+                <div class="row kt-margin-t-30">
+                    <div class="col-md-3">
+                        {{ form_row(form.numerooficinas) }}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form_row(form.idcondicionoficina) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.descrip_num_oficinas) }}
+                    </div>
+                </div>
+
+                <div class="row kt-margin-t-30">
+                    <div class="col-md-3">
+                        {{ form_row(form.numerobibliotecas) }}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form_row(form.idcondicionesbliblioteca) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.descrip_num_bibliotecas) }}
+                    </div>
+                </div>
+                <div class="row kt-margin-t-30">
+                    <div class="col-md-3">
+                        {{ form_row(form.numeroaulasmedios) }}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form_row(form.idcondicionaulamedios) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.descrip_num_aulamedios) }}
+                    </div>
+                </div>
+                <div class="row kt-margin-t-30">
+                    <div class="col-md-3">
+                        {{ form_row(form.numeropatio) }}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form_row(form.idcondicionpatio) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.descrip_num_patios) }}
+                    </div>
+                </div>
+                <div class="row kt-margin-t-30">
+                    <div class="col-md-3">
+                        {{ form_row(form.numerocanchasdeportivas) }}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form_row(form.idcondicioncanchasdeportivas) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.descrip_num_canchas_deportivas) }}
+                    </div>
+                </div>
+                <div class="row kt-margin-t-30">
+                    <div class="col-md-3">
+                        {{ form_row(form.numerobarda) }}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form_row(form.idcondicionbarda) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.descrip_num_bardas) }}
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-pane" id="kt_tabs_3_2" role="tabpanel">
+                <div class="row kt-margin-t-30">
+                    <div class="col-md-3">
+                        <label class="kt-checkbox kt-checkbox--success">
+                            {{ form_widget(form.aguapotable) }} {{ form_label(form.aguapotable) }}
+                            <span></span>
+                        </label>
+                            {{ form_errors(form.aguapotable) }}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form_row(form.idcondicionagua) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.descrip_agua_potables) }}
+                    </div>
+                </div>
+                <div class="row kt-margin-t-30">
+                    <div class="col-md-3">
+                        <label class="kt-checkbox kt-checkbox--success">
+                            {{ form_widget(form.drenaje) }} {{ form_label(form.drenaje) }}
+                            <span></span>
+                        </label>
+                        {{ form_errors(form.drenaje) }}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form_row(form.idcondiciondrenaje) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.descrip_drenaje) }}
+                    </div>
+                </div>
+                <div class="row kt-margin-t-30">
+                    <div class="col-md-3">
+                        <label class="kt-checkbox kt-checkbox--success">
+                            {{ form_widget(form.energiaelectrica) }} {{ form_label(form.energiaelectrica) }}
+                            <span></span>
+                        </label>
+                        {{ form_errors(form.energiaelectrica) }}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form_row(form.idcondicionenergia) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.descrip_energiaelectrica) }}
+                    </div>
+                </div>
+                <div class="row kt-margin-t-30">
+                    <div class="col-md-3">
+                        <label class="kt-checkbox kt-checkbox--success">
+                            {{ form_widget(form.telefono) }} {{ form_label(form.telefono) }}
+                            <span></span>
+                        </label>
+                        {{ form_errors(form.telefono) }}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form_row(form.idcondiciontelefono) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.descrip_telefonia) }}
+                    </div>
+                </div>
+                <div class="row kt-margin-t-30">
+                    <div class="col-md-3">
+                        <label class="kt-checkbox kt-checkbox--success">
+                            {{ form_widget(form.internet) }} {{ form_label(form.internet) }}
+                            <span></span>
+                        </label>
+                        {{ form_errors(form.internet) }}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form_row(form.idcondicioninternet) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.descrip_internet) }}
+                    </div>
+                </div>
+            </div>
+            {% if condicion_docente_educativas is defined and condicion_educativa_alumnos is defined %}
+            <div class="tab-pane" id="kt_tabs_3_3" role="tabpanel">
+                {{ include('condicion_docente_educativa/index.html.twig') }}
+            </div>
+            <div class="tab-pane" id="kt_tabs_3_4" role="tabpanel">
+                {{ include('condicion_educativa_alumnos/index.html.twig') }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<ul class="list-inline pull-right kt-margin-t-20">
+    <li class="list-inline-item hidden_element">
+        {{ form_row(form.file) }}
+    </li>
+
+    <li class="list-inline-item">
+        <button type="button" id="file_chooser" class="btn btn-info btn-sm m-tooltip" data-toggle="m-tooltip" data-skin="dark" data-placement="bottom" data-original-title="Cargar arquivo">
+            <i class="fa fa-file"></i>
+            Examinar
+        </button>
+    </li>
+
+    <li class="list-inline-item">
+        <button class="btn btn-sm btn-primary mt-ladda-btn ladda-button" data-style="expand-right" type="submit">
+            <i class="flaticon-edit"></i>
+            <span class="ladda-label">{{ action |default('Guardar') }}</span>
+            <span class="ladda-spinner"></span>
+        </button>
+    </li>
+</ul>
+{{ form_errors(form) }}
+{{ form_rest(form) }}
+
+{{ form_end(form) }}

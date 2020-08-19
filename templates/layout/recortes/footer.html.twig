@@ -1,0 +1,55 @@
+<div class="kt-footer  kt-footer--extended  kt-grid__item" id="kt_footer">
+    <div class="kt-footer__top">
+        <div class="kt-container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="kt-footer__section">
+                        <h3 class="kt-footer__title">La Escuela Es NUESTRA</h3>
+                        <div class="kt-footer__content">
+                            La aplicación para dar seguimiento a los proyectos y condiciones
+                            de cada una nuestras escuelas en todo México.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="kt-footer__section">
+                        <h3 class="kt-footer__title">Acceso rápido</h3>
+                        <div class="kt-footer__content">
+                            <div class="kt-footer__nav">
+                                <div class="kt-footer__nav-section">
+                                    <a href="{{path('estatica',{'page':'cookies'})}}">Cookies</a>
+                                    <a href="{{path('estatica',{'page':'privacidad'})}}">Privacidad</a>
+                                    <a href="{{path('estatica',{'page':'terminos'})}}">Términos de uso</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="kt-footer__section" id="suscripcion_form">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-footer__bottom">
+        <div class="kt-container">
+            <div class="kt-footer__wrapper">
+                <div class="kt-footer__logo">
+                    <a href="{{ path('index') }}">
+                        <img alt="Logo" src="{{ asset('media/logos/logo-2-sm.png','template') }}">
+                    </a>
+                    <div class="kt-footer__copyright">
+                        {{'today'|date('Y')}}&nbsp;&copy;&nbsp;
+                        <a href="https://github.com/eduard2diaz/LEEN">LEEN</a>
+                    </div>
+                </div>
+                <div class="kt-footer__menu">
+                    <a href="{{path('estatica',{'page':'faq'})}}">FAQ</a>
+                    <a href="{{path('estatica',{'page':'nosotros'})}}">Acerca de nosotros</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

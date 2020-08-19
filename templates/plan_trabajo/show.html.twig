@@ -1,0 +1,60 @@
+{% embed 'plan_trabajo/template.html.twig'  with {'plantel': plan_trabajo.plantel} %}
+    {% block plantel_show_body %}
+        <div class="row">
+            <div class="col-xl-12">
+                <!--begin:: Widgets/Daily Sales-->
+                <div class="kt-portlet kt-portlet--height-fluid">
+                    <div class="kt-widget14">
+                        <div class="kt-widget14__header kt-margin-b-30">
+                            <h3 class="kt-widget14__title">
+                                Detalles del plan de trabajo
+                            </h3>
+                            <a class="btn btn-primary btn-sm pull-right" href="{{ path('plan_trabajo_descargar',{'id':plan_trabajo.id}) }}"> <i class="fa fa-download"></i>Descargar</a>
+                        </div>
+                        <table class="table table-striped">
+                            <tbody>
+                            <tr>
+                                <th>Número</th>
+                                <td colspan="3">{{ plan_trabajo.numero }}</td>
+                            </tr>
+                            <tr>
+                                <th>Monto asignado</th>
+                                <td>{{ plan_trabajo.montoasignado }}</td>
+                                <th>Costo estimado</th>
+                                <td>{{ plan_trabajo.costoestimado }}</td>
+                            </tr>
+                            <tr>
+                                <th>Fecha de inicio</th>
+                                <td>{{ plan_trabajo.fechainicio | date('Y-m-d') }}</td>
+                                <th>Monto gastado</th>
+                                <td>{{ montogastado }}</td>
+                            </tr>
+                            <tr>
+                                <th>Fecha de fin</th>
+                                <td>{{ plan_trabajo.fechafin | date('Y-m-d') }}</td>
+                                <th>Saldo final</th>
+                                <td>{{ saldofinal }}</td>
+                            </tr>
+
+                            <tr>
+                                <th>Plantel</th>
+                                <td colspan="3">{{ plan_trabajo.plantel }}</td>
+                            </tr>
+                            <tr>
+                                <th>Tipo de Acción</th>
+                                <td>{{ plan_trabajo.tipoAccion }}</td>
+                                <th>Tiempo estimado</th>
+                                <td>{{ plan_trabajo.tiempoestimado }}</td>
+                            </tr>
+                            <tr>
+                                <th>Descripción</th>
+                                <td colspan="3">{{ plan_trabajo.descripcionaccion }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endembed %}

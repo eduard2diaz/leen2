@@ -1,0 +1,37 @@
+{% embed 'plantel/template.html.twig' with {'plantel':diagnostico_plantel.plantel }%}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css','template') }}"/>
+    <link rel="stylesheet" href="{{ asset('vendors/custom/datatables/datatables.bundle.css','template') }}"/>
+{% endblock %}
+
+{% block plantel_show_header %}
+    {{ parent() }}
+    <h3 class="kt-subheader__title">Editar diagnóstico</h3>
+{% endblock plantel_show_header %}
+
+{% block plantel_show_body %}
+    <div class="col-xl-12">
+        <!--begin:: Widgets/Daily Sales-->
+        <div class="kt-portlet kt-portlet--height-fluid">
+            <div class="kt-widget14">
+                {{ include('diagnostico_plantel/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('vendors/custom/datatables/datatables.bundle.js','template') }}" type="text/javascript"></script>
+    <script src="{{ asset('vendors/general/bootstrap-datepicker/dist/js/bootstrap-datepicker.js','template') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/entity/diagnostico_plantel.js','app') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/entity/condicion_docente_educativa.js','app') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/entity/condicion_educativa_alumno.js','app') }}" type="text/javascript"></script>
+    <script>
+        $.fn.datepicker.defaults.format = 'yyyy-mm-dd';
+        diagnostico_plantel.addEdit();
+        var condicion_docente_educativaCounter='{{ condicion_docente_educativas |length }}';
+        var condicion_educativa_alumnoCounter='{{ condicion_educativa_alumnos |length }}';
+        condicion_docente_educativa.init();
+        condicion_educativa_alumno.init();
+    </script>
+{% endblock %}
+{% endembed %}

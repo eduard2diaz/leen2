@@ -1,0 +1,23 @@
+{% extends 'plantel/template.html.twig' %}
+
+    {% block plantel_show_header %}
+        {{ parent() }}
+        <h3 class="kt-subheader__title">Plan de trabajo: {{ plan_trabajo.numero }}</h3>
+    {% endblock plantel_show_header %}
+
+    {% block plan_trabajo_suboptions %}
+    <ul>
+        <li class="kt-nav__item">
+            <a href="{{ path('control_gastos_index',{'id':plan_trabajo.id}) }}" class="kt-nav__link">
+                <i class="kt-nav__link-icon flaticon2-infographic"></i>
+                <span class="kt-nav__link-text">Control de gastos</span>
+            </a>
+        </li>
+        <li class="kt-nav__item">
+            <a href="{{ path('rendicion_cuentas_index',{'id':plan_trabajo.id}) }}" class="kt-nav__link">
+                <i class="kt-nav__link-icon flaticon2-checking"></i>
+                <span class="kt-nav__link-text">Rendición de cuentas</span>
+            </a>
+        </li>
+    </ul>
+    {% endblock plan_trabajo_suboptions %}

@@ -1,0 +1,17 @@
+{% for tipo, mensajes in app.session.flashbag.all() %}
+    {% for mensaje in mensajes %}
+       <script>
+           var tipo='{{ tipo }}';
+           if (tipo=="success")
+           toastr.success('{{ mensaje }}');
+           else if(tipo=="error")
+               toastr.error('{{ mensaje }}');
+           else if(tipo=="warning")
+               toastr.warning('{{ mensaje }}');
+           else
+               toastr.info('{{ mensaje }}');
+       </script>
+    {% endfor %}
+{% endfor %}
+                                            
+                                            

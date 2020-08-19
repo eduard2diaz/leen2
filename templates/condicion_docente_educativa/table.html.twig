@@ -1,0 +1,24 @@
+<table class="table table-hover" id="condicion_docente_educativa_entity_table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>CCts</th>
+        <th>CURP</th>
+        <th>Nombre</th>
+        <th>Grado</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% set i=1 %}
+    {% for condicion_docente_educativa in condicion_docente_educativas %}
+    <tr>
+        <td>{{ i }}</td>
+        <td>{{ condicion_docente_educativa.escuela.ccts }}</td>
+        <td>{{ condicion_docente_educativa.curp }}</td>
+        <td>{{ condicion_docente_educativa.nombre }}</td>
+        <td>{{ condicion_docente_educativa.grado }}</td>
+    </tr>
+        {% set i=1+i %}
+    {% endfor %}
+    </tbody>
+</table>

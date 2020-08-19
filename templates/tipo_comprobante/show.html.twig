@@ -1,0 +1,37 @@
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">
+                Detalles del tipo de comprobante
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div>
+
+            <div class="modal-body" id="modal-body">
+                <div class="row">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th>Comprobante</th>
+                            <td>{{ tipocomprobante.comprobante }}</td>
+                        </tr>
+                        <tr>
+                            <th>Fecha de captura</th>
+                            <td>{{ tipocomprobante.fechacaptura ? tipocomprobante.fechacaptura|date('Y-m-d') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Descripción</th>
+                            <td>{{ tipocomprobante.descripcion }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-sm btn-secondary" data-dismiss="modal"><i class="flaticon-cancel"></i> Cancelar</a>
+            </div>
+        </div>
+    </div>
+</div>

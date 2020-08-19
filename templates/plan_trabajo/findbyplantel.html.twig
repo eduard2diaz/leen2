@@ -1,0 +1,71 @@
+{% extends 'plantel/template.html.twig'%}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('vendors/custom/datatables/datatables.bundle.css','template') }}"/>
+    <link rel="stylesheet" href="{{ asset('vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css','template') }}"/>
+{% endblock %}
+
+{% block plantel_show_header %}
+    {{ parent() }}
+    <h3 class="kt-subheader__title">Planes de trabajo</h3>
+    <span class="kt-subheader__separator kt-subheader__separator--v"></span>
+    <a data-href="{{ path('plan_trabajo_new',{'id':plantel.id}) }}" class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10 edicion" data-toggle="m-tooltip" data-skin="dark" data-placement="bottom" data-original-title="Adicionar plan de trabajo">
+        Nuevo
+    </a>
+{% endblock plantel_show_header %}
+
+
+{% block plantel_show_body %}
+
+    <div class="row">
+        <div class="col-xl-12">
+            <!--begin:: Widgets/Daily Sales-->
+            <div class="kt-portlet kt-portlet--height-fluid">
+                <div class="kt-widget14">
+                    <div class="kt-widget14__header kt-margin-b-30">
+                        <h3 class="kt-widget14__title">
+                            Listado
+                        </h3>
+                    </div>
+                    <table class="table table-hover" id="plantrabajo_entity_table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Número</th>
+                            <th>Fecha de Inicio</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% set i=1 %}
+                        {% for plantrabajo in planestrabajo %}
+                            <tr>
+                                <td>{{ i }}</td>
+                                <td>{{ plantrabajo.numero }}</td>
+                                <td>{{ plantrabajo.fechainicio | date('Y-m-d') }}</td>
+                                <td>
+                                    <ul class="hidden_element list-inline pull-right">
+                                        <li class="list-inline-item"><a class="btn default btn-sm" href="{{ path('plan_trabajo_show', {'id': plantrabajo.id}) }}"><i class="fa fa-eye"></i>Visualizar</a></li>
+                                        <li class="list-inline-item"><a class="btn btn-primary btn-sm edicion" data-href="{{ path('plan_trabajo_edit', {'id': plantrabajo.id}) }}"><i class="fa fa-edit"></i>Editar</a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            {% set i=1+i %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('vendors/custom/datatables/datatables.bundle.js','template') }}" type="text/javascript"></script>
+    <script src="{{ asset('vendors/general/bootstrap-datepicker/dist/js/bootstrap-datepicker.js','template') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/entity/plantel_plantrabajo.js','app') }}" type="text/javascript"></script>
+    <script>
+        var plantrabajoCounter='{{ planestrabajo|length }}';
+        $.fn.datepicker.defaults.format = 'yyyy-mm-dd';
+        plantel_plantrabajo.init();
+    </script>
+{% endblock %}

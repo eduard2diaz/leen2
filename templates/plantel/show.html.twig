@@ -1,0 +1,39 @@
+{% extends 'plantel/template.html.twig' %}
+{% block plantel_show_header %}
+    {{ parent() }}
+    <h3 class="kt-subheader__title">Información General</h3>
+{% endblock plantel_show_header %}
+
+{% block plantel_show_body %}
+    <div class="row">
+        <div class="col-xl-12">
+            <!--begin:: Widgets/Daily Sales-->
+            <div class="kt-portlet kt-portlet--height-fluid">
+                <div class="kt-widget14">
+                    <div class="kt-widget14__header kt-margin-b-30">
+                        <div class="kt-subheader   kt-grid__item" id="kt_subheader">
+                            <div class="kt-subheader__main">
+                                <h3 class="kt-subheader__title">Detalles</h3>
+                            </div>
+                        </div>
+                        <table class="table kt-margin-t-20">
+                            <tr>
+                                <th>Nombre</th>
+                                <td>{{ plantel.nombre }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock plantel_show_body %}
+
+
+{% block javascripts %}
+    <script src="{{ asset('vendors/custom/datatables/datatables.bundle.js','template') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/entity/plantel_ccts.js','app') }}" type="text/javascript"></script>
+    <script>
+        plantel_ccts.init();
+    </script>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'layout/autenticado.html.twig' %}
+{% block body %}
+    <div class="kt-subheader   kt-grid__item" id="kt_subheader">
+        <div class="kt-subheader__main">
+            <h3 class="kt-subheader__title">Preguntas frecuentes</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-4">
+
+            <!--begin:: Widgets/Daily Sales-->
+            <div class="kt-portlet kt-portlet--height-fluid">
+                <div class="kt-widget14">
+                    <div class="kt-widget14__header">
+                        <h3 class="kt-widget14__title">
+                            ¿Está a salvo mi información?
+                        </h3>
+                    </div>
+                    <div class="kt-widget14__content">
+                        <p>Su információn está a salvo con, la información referente a las escuelas se encuentra
+                            protegida de posibles ataques de terceros.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!--end:: Widgets/Daily Sales-->
+        </div>
+        <div class="col-xl-4">
+            <!--begin:: Widgets/Profit Share-->
+            <div class="kt-portlet kt-portlet--height-fluid">
+                <div class="kt-widget14">
+                    <div class="kt-widget14__header">
+                        <h3 class="kt-widget14__title">
+                            ¿Qué restricciones existen al usar La Escuela Es Nuestra?
+                        </h3>
+                    </div>
+                    <div class="kt-widget14__content">
+                        <p>
+                            La Escuela Es Nuestra es de acceso libre y gratuito,
+                            aún así posee en conjunto restricciones de caracter obligatorio las cuales están reflejadas
+                            en los <a href="{{ path('estatica',{'page':'terminos'}) }}">Términos de uso</a> de la aplicación.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--end:: Widgets/Profit Share-->
+        </div>
+    </div>
+{% endblock %}

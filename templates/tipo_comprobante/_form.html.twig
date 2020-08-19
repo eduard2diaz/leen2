@@ -1,0 +1,50 @@
+{{ form_start(form,{'attr':{
+    'id': form_id|default('tipocomprobante_new'),
+    'class': 'm-form m-form--state',
+}}) }}
+<div class="modal-body" id="modal-body">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group m-form__group">
+                <label>
+                    {{ form_label(form.comprobante) }}
+                </label>
+                <div>
+                    {{ form_widget(form.comprobante) }}
+                    {{ form_errors(form.comprobante) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group m-form__group">
+                <label>
+                    {{ form_label(form.descripcion) }}
+                </label>
+                <div>
+                    {{ form_widget(form.descripcion) }}
+                    {{ form_errors(form.descripcion) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ form_errors(form) }}
+{{ form_rest(form) }}
+<div class="modal-footer">
+    <a class="btn btn-sm btn-secondary" data-dismiss="modal"><i class="flaticon-cancel"></i> Cancelar</a>
+    {% if eliminable is defined and eliminable==true %}
+        <a class="btn btn-danger color-white btn-sm  eliminar_tipocomprobante"
+           data-href="{{ path('tipo_comprobante_delete', { 'id': tipocomprobante.id }) }}"
+           data-csrf="{{ csrf_token('delete' ~ tipocomprobante.id) }}">
+            <i class="flaticon-delete-1"></i> Eliminar</a>
+    {% endif %}
+    <button class="btn btn-sm btn-primary mt-ladda-btn ladda-button" data-style="expand-right" type="submit">
+        <i class="flaticon-edit"></i>
+        <span class="ladda-label">{{ action |default('Guardar') }}</span>
+        <span class="ladda-spinner"></span>
+    </button>
+</div>
+{{ form_end(form) }}

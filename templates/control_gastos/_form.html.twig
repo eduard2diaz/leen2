@@ -1,0 +1,95 @@
+{{ form_start(form,{'attr':{
+    'id': form_id|default('controlgastos_new'),
+    'class': 'm-form m-form--state'
+}}) }}
+<div class="modal-body" id="modal-body">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group m-form__group">
+                <label>
+                    {{ form_label(form.tipoComprobante) }}
+                </label>
+                <div>
+                    {{ form_widget(form.tipoComprobante) }}
+                    {{ form_errors(form.tipoComprobante) }}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group m-form__group">
+                <label>
+                    {{ form_label(form.fechacaptura) }}
+                </label>
+                <div>
+                    {{ form_widget(form.fechacaptura) }}
+                    {{ form_errors(form.fechacaptura) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group m-form__group">
+                <label>
+                    {{ form_label(form.monto) }}
+                </label>
+                <div>
+                    {{ form_widget(form.monto) }}
+                    {{ form_errors(form.monto) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group m-form__group">
+                <label>
+                    {{ form_label(form.concepto) }}
+                </label>
+                <div>
+                    {{ form_widget(form.concepto) }}
+                    {{ form_errors(form.concepto) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ form_errors(form) }}
+
+<div class="modal-footer">
+    <ul class="list-inline pull-right kt-margin-t-20">
+        <li class="list-inline-item">
+            <a class="btn btn-sm btn-secondary" data-dismiss="modal"><i class="flaticon-cancel"></i> Cancelar</a>
+        </li>
+        {% if control_gastos.id is not empty%}
+            <li class="list-inline-item">
+                <a class="btn btn-danger btn-sm color-white eliminar_control_gasto"
+                   data-href="{{ path('control_gastos_delete', { 'id': control_gastos.id }) }}"
+                   data-csrf="{{ csrf_token('delete' ~ control_gastos.id) }}">
+                    <i class="flaticon-delete-1"></i> Eliminar</a>
+            </li>
+        {% endif %}
+        <li class="list-inline-item hidden_element">
+            {{ form_row(form.file) }}
+        </li>
+
+        <li class="list-inline-item">
+            <button type="button" id="file_chooser" class="btn btn-info btn-sm m-tooltip" data-toggle="m-tooltip" data-skin="dark" data-placement="bottom" data-original-title="Cargar arquivo">
+                <i class="fa fa-file"></i>
+                Examinar
+            </button>
+        </li>
+
+        <li class="list-inline-item">
+            <button class="btn btn-sm btn-primary mt-ladda-btn ladda-button" data-style="expand-right" type="submit">
+                <i class="flaticon-edit"></i>
+                <span class="ladda-label">{{ action |default('Guardar') }}</span>
+                <span class="ladda-spinner"></span>
+            </button>
+        </li>
+    </ul>
+</div>
+{{ form_rest(form) }}
+{{ form_end(form) }}
+

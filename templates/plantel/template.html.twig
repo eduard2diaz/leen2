@@ -1,0 +1,64 @@
+{% extends 'layout/autenticado.html.twig' %}
+{% block body %}
+    <div class="kt-subheader   kt-grid__item" id="kt_subheader">
+        <div class="kt-subheader__main">
+            <h3 class="kt-subheader__title">Planteles</h3>
+            {% block plantel_show_header %}
+                <span class="kt-subheader__separator kt-subheader__separator--v"></span>
+            {% endblock plantel_show_header %}
+        </div>
+        <div class="kt-subheader__toolbar">
+
+            <div class="kt-subheader__wrapper">
+                <a href="{{ path('plantel_index') }}" class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10"  data-toggle="m-tooltip" data-skin="dark" data-placement="bottom" data-original-title="Regresar al listado de plantels">
+                    <i class="fa fa-list"></i>
+                </a>
+
+                <div class="dropdown dropdown-inline" data-toggle="kt-tooltip" title="" data-placement="left" data-original-title="Acciones rápidas">
+                    <a href="#" class="btn btn-icon btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="flaticon-more-v5"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-fit dropdown-menu-md dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(35px, 35px, 0px);">
+                        <!--begin::Nav-->
+                        <ul class="kt-nav">
+                            <li class="kt-nav__item">
+                                <a href="{{ path('plantel_show',{'id':plantel.id}) }}" class="kt-nav__link">
+                                    <i class="kt-nav__link-icon flaticon2-information"></i>
+                                    <span class="kt-nav__link-text">Detalles de la plantel</span>
+                                </a>
+                            </li>
+                            <li class="kt-nav__item">
+                                <a href="{{ path('escuela_findby_plantel',{'id':plantel.id}) }}" class="kt-nav__link">
+                                    <i class="kt-nav__link-icon flaticon2-open-text-book"></i>
+                                    <span class="kt-nav__link-text">Escuelas</span>
+                                </a>
+                            </li>
+                            <li class="kt-nav__item">
+                                <a href="{{ path('plantrabajo_findby_plantel',{'id':plantel.id}) }}" class="kt-nav__link">
+                                    <i class="kt-nav__link-icon flaticon2-analytics-2"></i>
+                                    <span class="kt-nav__link-text">Planes de Trabajo</span>
+                                </a>
+                                {% block plan_trabajo_suboptions %}
+                                {% endblock plan_trabajo_suboptions %}
+                            </li>
+                            <li class="kt-nav__item">
+                                <a href="{{ path('diagnostico_plantel_index',{'id':plantel.id}) }}" class="kt-nav__link">
+                                    <i class="kt-nav__link-icon flaticon2-contract"></i>
+                                    <span class="kt-nav__link-text">Diagnóstico del plantel</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <!--end::Nav-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {% block plantel_show_body %}
+            {% endblock plantel_show_body %}
+        </div>
+    </div>
+{% endblock %}

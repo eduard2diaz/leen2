@@ -1,0 +1,129 @@
+{{ form_start(form,{'attr':{
+    'id': form_id|default('plantrabajo_new'),
+    'class': 'm-form m-form--state'
+}}) }}
+<div class="modal-body" id="modal-body">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group m-form__group">
+                <label>
+                    {{ form_label(form.tipoAccion) }}
+                </label>
+                <div>
+                    {{ form_widget(form.tipoAccion) }}
+                    {{ form_errors(form.tipoAccion) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group m-form__group">
+                <label>
+                    {{ form_label(form.fechainicio) }}
+                </label>
+                <div>
+                    {{ form_widget(form.fechainicio) }}
+                    {{ form_errors(form.fechainicio) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group m-form__group">
+                <label>
+                    {{ form_label(form.fechafin) }}
+                </label>
+                <div>
+                    {{ form_widget(form.fechafin) }}
+                    {{ form_errors(form.fechafin) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group m-form__group">
+                <label>
+                    {{ form_label(form.tiempoestimado) }}
+                </label>
+                <div>
+                    {{ form_widget(form.tiempoestimado) }}
+                    {{ form_errors(form.tiempoestimado) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group m-form__group">
+                <label>
+                    {{ form_label(form.costoestimado) }}
+                </label>
+                <div>
+                    {{ form_widget(form.costoestimado) }}
+                    {{ form_errors(form.costoestimado) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group m-form__group">
+                <label>
+                    {{ form_label(form.montoasignado) }}
+                </label>
+                <div>
+                    {{ form_widget(form.montoasignado) }}
+                    {{ form_errors(form.montoasignado) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group m-form__group">
+                <label>
+                    {{ form_label(form.descripcionaccion) }}
+                </label>
+                <div>
+                    {{ form_widget(form.descripcionaccion) }}
+                    {{ form_errors(form.descripcionaccion) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ form_errors(form) }}
+
+<div class="modal-footer">
+    <ul class="list-inline pull-right kt-margin-t-20">
+        <li class="list-inline-item">
+            <a class="btn btn-sm btn-secondary" data-dismiss="modal"><i class="flaticon-cancel"></i> Cancelar</a>
+        </li>
+        {% if eliminable is defined and eliminable==true%}
+        <li class="list-inline-item">
+            <a class="btn btn-danger btn-sm  color-white eliminar_plan_trabajo"
+               data-href="{{ path('plan_trabajo_delete', { 'id': plan_trabajo.id }) }}"
+               data-csrf="{{ csrf_token('delete' ~ plan_trabajo.id) }}">
+                <i class="flaticon-delete-1"></i> Eliminar</a>
+        </li>
+        {% endif %}
+        <li class="list-inline-item hidden_element">
+            {{ form_row(form.file) }}
+        </li>
+        <li class="list-inline-item">
+            <button type="button" id="file_chooser" class="btn btn-info btn-sm m-tooltip" data-toggle="m-tooltip" data-skin="dark" data-placement="bottom" data-original-title="Cargar arquivo">
+                <i class="fa fa-file"></i>
+                Examinar
+            </button>
+        </li>
+
+        <li class="list-inline-item">
+            <button class="btn btn-sm btn-primary mt-ladda-btn ladda-button" data-style="expand-right" type="submit">
+                <i class="flaticon-edit"></i>
+                <span class="ladda-label">{{ action |default('Guardar') }}</span>
+                <span class="ladda-spinner"></span>
+            </button>
+        </li>
+    </ul>
+</div>
+{{ form_errors(form) }}
+{{ form_rest(form) }}
+{{ form_end(form) }}
+

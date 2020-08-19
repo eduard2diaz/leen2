@@ -1,0 +1,58 @@
+<div class="kt-header__bottom" style="background-color: #ae0055 !important;">
+    <div class="kt-container">
+
+        <!-- begin: Header Menu -->
+        <button class="kt-header-menu-wrapper-close" id="kt_header_menu_mobile_close_btn"><i class="la la-close"></i>
+        </button>
+        <div class="kt-header-menu-wrapper" id="kt_header_menu_wrapper" style="background-color: #ae0055 !important">
+            <div id="kt_header_menu" class="kt-header-menu kt-header-menu-mobile " style="background-color: #ae0055 !important">
+                <ul class="kt-menu__nav "  style="color: white !important;">
+                    <li class="kt-menu__item " aria-haspopup="true">
+                        <a href="{{ path('index') }}" class="kt-menu__link ">
+                           <span
+                                    class="kt-menu__link-text" style="color: white !important;">
+                                <i class="kt-menu__link-bullet  flaticon-home"></i>
+                                Inicio
+                            </span>
+                        </a>
+                    </li>
+                    <li class="kt-menu__item " aria-haspopup="true"><a href="{{ path('maps_index') }}"
+                                                                       class="kt-menu__link ">
+                           <span
+                                    class="kt-menu__link-text" style="color: white !important;">
+                                <i class="kt-menu__link-bullet  flaticon-placeholder-3"></i>
+                                Ubicación
+                            </span>
+                        </a>
+                    </li>
+                    {% include 'layout/recortes/estadistica_menu.html.twig' %}
+                    {% include 'layout/recortes/user_menu.html.twig' %}
+                    {% include 'layout/recortes/superadmin_menu.html.twig' %}
+                </ul>
+            </div>
+            <!--
+            <div class="kt-header-toolbar">
+                <div class="kt-quick-search" id="kt_quick_search_default">
+                    <form method="get" class="kt-quick-search__form">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text"><i
+                                            class="flaticon2-search-1"></i></span></div>
+                            <input type="text" class="form-control kt-quick-search__input" placeholder="Buscar...">
+                            <div class="input-group-append"><span class="input-group-text"><i
+                                            class="la la-close kt-quick-search__close"></i></span></div>
+                        </div>
+                    </form>
+                    <div id="kt_quick_search_toggle" data-toggle="dropdown" data-offset="0px,10px"></div>
+                    <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-lg">
+                        <div class="kt-quick-search__wrapper kt-scroll" data-scroll="true" data-height="300"
+                             data-mobile-height="200">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+
+        <!-- end: Header Menu -->
+    </div>
+</div>
