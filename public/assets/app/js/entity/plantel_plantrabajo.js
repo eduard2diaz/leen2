@@ -20,11 +20,11 @@ var plantel_plantrabajo = function () {
 
     function previewfile(evt) {
         var f = evt.target.files[0]; // FileList object
-        var reader = new FileReader();
         var size=f.size;
         var name=f.name;
         $('button#file_chooser').attr('data-original-title',name);
         $('button#file_chooser').attr('title',name);
+        $('button#file_chooser i').attr('class','fa fa-file');
     }
 
     var escucharArchivo = function () {

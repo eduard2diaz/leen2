@@ -36,19 +36,6 @@ class PlanTrabajoController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/index", name="plan_trabajo_index", methods={"GET"})
-     */
-    public function index(): Response
-    {
-        $em=$this->getDoctrine()->getManager();
-        $planTrabajos=null;
-
-        return $this->render('plan_trabajo/index.html.twig', [
-            'plan_trabajos' => $planTrabajos,
-        ]);
-    }
-
-    /**
      * @Route("/{id}/new", name="plan_trabajo_new", methods={"GET","POST"})
      */
     public function new(Request $request,Plantel $plantel): Response
