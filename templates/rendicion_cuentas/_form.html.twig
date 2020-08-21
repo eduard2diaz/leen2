@@ -44,6 +44,7 @@
 {{ form_errors(form) }}
 
 <div class="modal-footer">
+    <span class="pull-left"><b>Archivo: </b><span id="nombre_archivo">{% if rendicion_cuentas.rendicionesarchivos is defined%}{{ rendicion_cuentas.rendicionesarchivos }}{% endif %}</span></span>
     <ul class="list-inline pull-right kt-margin-t-20">
         <li class="list-inline-item">
             <a class="btn btn-sm btn-secondary" data-dismiss="modal"><i class="flaticon-cancel"></i> Cancelar</a>
@@ -63,7 +64,7 @@
         <li class="list-inline-item">
             <button type="button" id="file_chooser" class="btn btn-info btn-sm m-tooltip" data-toggle="m-tooltip" data-skin="dark" data-placement="bottom" data-original-title="Cargar arquivo">
                 <i class="fa fa-upload"></i>
-                Examinar
+                Adjuntar
             </button>
         </li>
 

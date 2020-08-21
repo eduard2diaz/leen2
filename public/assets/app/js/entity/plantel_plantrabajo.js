@@ -24,6 +24,7 @@ var plantel_plantrabajo = function () {
         var name=f.name;
         $('button#file_chooser').attr('data-original-title',name);
         $('button#file_chooser').attr('title',name);
+        $('span#nombre_archivo').html(name);
         $('button#file_chooser i').attr('class','fa fa-file');
     }
 

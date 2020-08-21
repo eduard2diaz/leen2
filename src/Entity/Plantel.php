@@ -22,9 +22,9 @@ class Plantel
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=255)
      * @Assert\Length(
-     *      max = 50,
+     *      max = 255,
      *      maxMessage = "El nombre del plantel no puede exceder los {{ limit }} caracteres",
      * )
      */

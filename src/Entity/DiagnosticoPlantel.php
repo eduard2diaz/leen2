@@ -821,8 +821,6 @@ class DiagnosticoPlantel
         return $this;
     }
 
-
-
     /**
      * Sets file.
      *

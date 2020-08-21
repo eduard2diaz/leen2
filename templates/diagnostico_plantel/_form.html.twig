@@ -221,6 +221,7 @@
 </div>
 
 <ul class="list-inline pull-right kt-margin-t-20">
+    <span class="pull-left"><b>Archivo: </b><span id="nombre_archivo">{% if diagnostico_plantel.diagnosticoarchivo is defined%}{{ diagnostico_plantel.diagnosticoarchivo }}{% endif %}</span></span>
     <li class="list-inline-item hidden_element">
         {{ form_row(form.file) }}
     </li>
@@ -228,7 +229,7 @@
     <li class="list-inline-item">
         <button type="button" id="file_chooser" class="btn btn-info btn-sm m-tooltip" data-toggle="m-tooltip" data-skin="dark" data-placement="bottom" data-original-title="Cargar arquivo">
             <i class="fa fa-upload"></i>
-            Examinar
+            Adjuntar
         </button>
     </li>
 
