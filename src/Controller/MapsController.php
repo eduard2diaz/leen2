@@ -29,7 +29,8 @@ class MapsController extends AbstractController
         if ($request->isXmlHttpRequest()) {
             $escuela = $request->request->get('maps')['escuela'];
             $estado = $request->request->get('maps')['estado'];
-            $condicion = "e1.nom_ent='".$estado."'";
+
+            /*$condicion = "e1.nom_ent='".$estado."'";
 
             if (isset($request->request->get('maps')["municipio"])) {;
                 $municipio = $request->request->get('maps')['municipio'];
@@ -50,9 +51,20 @@ class MapsController extends AbstractController
                                             INNER JOIN (SELECT cctt FROM gis.escuela as e1 join public.escuela as e2 on(e1.cct=e2.ccts) WHERE " . $condicion . ") As lp
                                                     ON esc.cctt = lp.cctt
                                 ) As f ) As fc  ;";
+            */
+            if(!$escuela){
+                $escuela='';
+            }
 
+            $municipio = $request->request->get('maps')['municipio'];
+            if(!$municipio){
+                $municipio='';
+            }
+
+            $consulta="SELECT public.mapa('$estado','$municipio','$escuela')";
             $result=$this->executeQuery($consulta);
-            return $this->json($result[0]['row_to_json']);
+            //return $this->json($result[0]['row_to_json']);
+            return $this->json($result[0]['mapa']);
         }
 
         return $this->render('maps/index.html.twig', [
