@@ -1,0 +1,17 @@
+{% extends 'layout/base.html.twig' %}
+{% block body %}
+    <div class="row kt-margin-t-50">
+        <div class="col-md-7">
+            <video class="col-md-12" controls="controls">
+                <source src="{{ asset('video/fast_guide.m4v','app') }}" type="video/mp4"/>
+                <img src="{{ asset('img/mapa.jpg','app') }}" alt="Video no soportado"/>
+            </video>
+        </div>
+        <div class="col-md-5 kt-padding-t-80">
+            <h4 style="text-align: center">El presente video le será de gran ayuda para dar sus primeros pasos en la aplicación,
+            así como comprender sus principales funcionalidades y conceptos.</h4>
+        </div>
+    </div>
+
+
+{% endblock %}

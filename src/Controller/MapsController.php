@@ -48,7 +48,7 @@ class MapsController extends AbstractController
                                         , gis.ST_AsGeoJSON(esc.the_geom)::json As geometry
                                         , row_to_json(lp) As properties
                                         FROM gis.escuela As esc
-                                            INNER JOIN (SELECT cctt FROM gis.escuela as e1 join public.escuela as e2 on(e1.cct=e2.ccts) WHERE " . $condicion . ") As lp
+                                            INNER JOIN (ERE " . $condicion . ") As lp
                                                     ON esc.cctt = lp.cctt
                                 ) As f ) As fc  ;";
             */

@@ -18,11 +18,19 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/estatica/{page}", name="estatica", requirements={"page" = "api|cookies|faq|nosotros|privacidad|terminos"})
+     * @Route("/estatica/{page}", name="estatica", requirements={"page" = "api|cookies|faq|nosotros|privacidad|terminos|guia"})
      */
     public function estatica($page)
     {
         return $this->render('default/estatica/'.$page.'.html.twig');
+    }
+
+    /**
+     * @Route("/guia", name="guia")
+     */
+    public function guia()
+    {
+        return $this->render('default/estatica/guia.html.twig');
     }
 
 }

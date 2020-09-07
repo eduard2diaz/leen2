@@ -20,6 +20,7 @@
                                     <a href="{{path('estatica',{'page':'cookies'})}}">Cookies</a>
                                     <a href="{{path('estatica',{'page':'privacidad'})}}">Privacidad</a>
                                     <a href="{{path('estatica',{'page':'terminos'})}}">Términos de uso</a>
+
                                 </div>
                             </div>
                         </div>
@@ -42,10 +43,11 @@
                     </a>
                     <div class="kt-footer__copyright">
                         {{'today'|date('Y')}}&nbsp;&copy;&nbsp;
-                        <a href="https://github.com/eduard2diaz/LEEN">LEEN</a>
+                        <a href="{{ path('index') }}">LEEN</a>
                     </div>
                 </div>
                 <div class="kt-footer__menu">
+                    <a href="{{path('guia')}}">Guía Rápida</a>
                     <a href="{{path('estatica',{'page':'faq'})}}">FAQ</a>
                     <a href="{{path('estatica',{'page':'nosotros'})}}">Acerca de nosotros</a>
                 </div>
