@@ -27,43 +27,19 @@ class MapsController extends AbstractController
         $form->handleRequest($request);
 
         if ($request->isXmlHttpRequest()) {
-            $escuela = $request->request->get('maps')['escuela'];
             $estado = $request->request->get('maps')['estado'];
 
-            /*$condicion = "e1.nom_ent='".$estado."'";
-
-            if (isset($request->request->get('maps')["municipio"])) {;
+            $municipio='';
+            $escuela='';
+            if(isset($request->request->get('maps')['municipio']))
                 $municipio = $request->request->get('maps')['municipio'];
-                if ($municipio != "")
-                    $condicion .= " AND e1.nom_mun='" . $municipio . "'";
-            }
-
-            if ($escuela != "")
-                $condicion .= " AND (e2.nombre like '%" . $escuela . "%' OR e2.ccts='$escuela')";
-
-            $consulta="SELECT row_to_json(fc)
-                            FROM ( SELECT 'FeatureCollection' As type, array_to_json(array_agg(f)) As features
-                                    FROM (
-                                        SELECT 'Feature' As type
-                                        , gis.ST_AsGeoJSON(esc.the_geom)::json As geometry
-                                        , row_to_json(lp) As properties
-                                        FROM gis.escuela As esc
-                                            INNER JOIN (ERE " . $condicion . ") As lp
-                                                    ON esc.cctt = lp.cctt
-                                ) As f ) As fc  ;";
+            /*
+            if(isset($request->request->get('maps')['escuela']))
+                $escuela = $request->request->get('maps')['escuela'];
             */
-            if(!$escuela){
-                $escuela='';
-            }
-
-            $municipio = $request->request->get('maps')['municipio'];
-            if(!$municipio){
-                $municipio='';
-            }
 
             $consulta="SELECT public.mapa('$estado','$municipio','$escuela')";
             $result=$this->executeQuery($consulta);
-            //return $this->json($result[0]['row_to_json']);
             return $this->json($result[0]['mapa']);
         }
 

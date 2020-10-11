@@ -21,7 +21,7 @@ class MapsType extends AbstractType
         $builder
             ->add('estado',ChoiceType::class,['placeholder'=>'Seleccione el estado','choices'=>$estados])
             ->add('municipio',ChoiceType::class,['required'=>false,'choices'=>[]])
-            ->add('escuela', TextType::class, ['required'=>false,'attr' => ['class' => 'form-control','autocomplete'=>'off']])
+            //->add('escuela', TextType::class, ['required'=>false,'attr' => ['class' => 'form-control','autocomplete'=>'off']])
         ;
     }
 
