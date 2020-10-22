@@ -33,10 +33,9 @@ class MapsController extends AbstractController
             $escuela='';
             if(isset($request->request->get('maps')['municipio']))
                 $municipio = $request->request->get('maps')['municipio'];
-            /*
+
             if(isset($request->request->get('maps')['escuela']))
                 $escuela = $request->request->get('maps')['escuela'];
-            */
 
             $consulta="SELECT public.mapa('$estado','$municipio','$escuela')";
             $result=$this->executeQuery($consulta);
@@ -94,6 +93,7 @@ class MapsController extends AbstractController
     private function executeQuery($query)
     {
         $conn = $this->getDoctrine()->getConnection();
+
         $conn->connect();
         if (!$conn->isConnected())
             throw new \Exception('No se puedo establecer la conexión al servidor de mapas');
