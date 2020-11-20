@@ -92,7 +92,7 @@
 {{ form_errors(form) }}
 
 <div class="modal-footer">
-    <span class="pull-left"><b>Archivo: </b><span id="nombre_archivo">{% if plan_trabajo.planarchivo is defined%}{{ plan_trabajo.planarchivo }}{% endif %}</span></span>
+    <span class="pull-left" style="margin-right: auto"><b>Archivo: </b><span id="nombre_archivo">{% if plan_trabajo.planarchivo is defined%}{{ plan_trabajo.planarchivo }}{% endif %}</span></span>
     <ul class="list-inline pull-right kt-margin-t-20">
         <li class="list-inline-item">
             <a class="btn btn-sm btn-secondary" data-dismiss="modal"><i class="flaticon-cancel"></i> Cancelar</a>
@@ -105,7 +105,7 @@
                 <i class="flaticon-delete-1"></i> Eliminar</a>
         </li>
         {% endif %}
-        <li class="list-inline-item hidden_element">
+        <li class="list-inline-item" style="display: none">
             {{ form_row(form.file) }}
         </li>
         <li class="list-inline-item">

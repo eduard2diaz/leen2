@@ -220,9 +220,9 @@
     </div>
 </div>
 
+<span class="pull-left"><b>Archivo: </b><span id="nombre_archivo">{% if diagnostico_plantel.diagnosticoarchivo is defined%}{{ diagnostico_plantel.diagnosticoarchivo }}{% endif %}</span></span>
 <ul class="list-inline pull-right kt-margin-t-20">
-    <span class="pull-left"><b>Archivo: </b><span id="nombre_archivo">{% if diagnostico_plantel.diagnosticoarchivo is defined%}{{ diagnostico_plantel.diagnosticoarchivo }}{% endif %}</span></span>
-    <li class="list-inline-item hidden_element">
+    <li class="list-inline-item" style="display: none">
         {{ form_row(form.file) }}
     </li>
 
