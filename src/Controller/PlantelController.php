@@ -30,14 +30,14 @@ class PlantelController extends AbstractController
         $form = $this->createForm(FiltroType::class, [], ['action' => $this->generateUrl('plantel_index')]);
         $form->handleRequest($request);
 
-        $dql = "SELECT e FROM App:Plantel e";
+        $dql = "SELECT e FROM App:Plantel e ORDER BY e.id ASC";
         $data = $request->query->get('filtro');
 
         if ($form->isSubmitted() || $data != "") {
             if ($form->isSubmitted())
                 $data = $form->getData()["filtro"];
 
-            $dql = "SELECT e FROM App:Plantel e WHERE e.nombre LIKE :value";
+            $dql = "SELECT e FROM App:Plantel e WHERE e.nombre LIKE :value ORDER BY e.id ASC";
             $query = $this->getDoctrine()->getManager()->createQuery($dql);
             $query->setParameter('value', "%" . $data . "%");
         } else {
